@@ -8,7 +8,7 @@ raw_folder = next(
     p for p in data_folder.iterdir()
     if p.is_dir() and p.name.strip() == "Raw Data"
 )
-output = data_folder / "AA_DEPART_FROM_CLT_2025.csv"
+output = data_folder / "AA_CLT_2025.csv"
 
 # Find all monthly CSV files
 files = sorted(raw_folder.glob("*_T_ONTIME_REPORTING.csv"))
