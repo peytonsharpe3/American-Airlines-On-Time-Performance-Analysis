@@ -1,6 +1,5 @@
-# BTS raw and processed datasets
-Data/*.csv
-Data/*.zip
+# Ignore ONLY the raw BTS data folder
+Data/Raw Data\ /
 
 # Python
 __pycache__/
@@ -11,3 +10,7 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Virtual environments
+.venv/
+venv/
