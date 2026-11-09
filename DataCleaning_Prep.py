@@ -1,6 +1,6 @@
-
 import pandas as pd
 from pathlib import Path
+import numpy as np
 
 # File locations
 data_folder = Path(__file__).resolve().parent / "Data"
@@ -31,7 +31,14 @@ for file in files:
             (chunk["OP_CARRIER"] == "AA") &
             ((chunk["ORIGIN"] == "CLT") |
              (chunk["DEST"] == "CLT"))
-        ]
+        ].copy()
+
+        # Add flight direction
+        filtered["DIRECTION"] = np.where(
+            filtered["ORIGIN"] == "CLT",
+            "Departing CLT",
+            "Arriving CLT"
+        )
 
         # Append filtered flights to one CSV
         filtered.to_csv(
